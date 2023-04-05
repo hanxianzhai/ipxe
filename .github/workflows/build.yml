@@ -52,10 +52,10 @@ jobs:
                            libc6-dev-i386 libc6-dbg:i386 valgrind
       - name: Build (BIOS)
         run: |
-          make -j 4 -C src
+          make -j 4 -C src EMBED=bootserver.ipxe
       - name: Build (Everything)
         run: |
-          make -j 4 -C src everything
+          make -j 4 -C src everything EMBED=bootserver.ipxe
       - name: Test
         run: |
           valgrind ./src/bin-i386-linux/tests.linux
